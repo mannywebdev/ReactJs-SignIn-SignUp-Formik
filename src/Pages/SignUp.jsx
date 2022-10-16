@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect, Formik } from "formik";
+import { Formik } from "formik";
 import signup from "../Images/onboarding.svg";
 import { signUpSchema } from "../Schema";
 import SignInput from "../Components/SignInput";
 import { userService } from "../Service/userService";
-import { errorToast, withRouter } from "../Helper";
+import { errorToast } from "../Helper";
 import { ToastContainer } from "react-toastify";
-import { signin } from "../store/slices/user";
 
 class SignUp extends Component {
   render() {
@@ -178,11 +177,4 @@ class SignUp extends Component {
     );
   }
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signIn: (data) => dispatch(signin(data)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(withRouter(SignUp));
+export default SignUp;
